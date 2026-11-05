@@ -6,5 +6,6 @@
   "/api/conversations/[id]/route": "/api/conversations/[id]",
   "/api/conversations/route": "/api/conversations",
   "/chat/[id]/page": "/chat/[id]",
+  "/lab/page": "/lab",
   "/page": "/"
 }

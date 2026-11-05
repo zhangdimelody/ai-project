@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
-import { MessageSquare, Plus, Trash2 } from "lucide-react";
+import { MessageSquare, Plus, Sparkles, Trash2 } from "lucide-react";
 import LiquidLogo from "@/components/liquid-logo";
 import type { Conversation } from "@/src/lib/conversation-types";
 
@@ -54,6 +54,16 @@ export default function Sidebar() {
           <Plus className="h-4 w-4" />
           新建会话
         </button>
+      </div>
+
+      <div className="px-3 pb-1">
+        <Link
+          href="/lab"
+          className="flex w-full items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm text-muted transition hover:border-accent hover:text-foreground"
+        >
+          <Sparkles className="h-4 w-4" />
+          效果对比
+        </Link>
       </div>
 
       <nav className="flex-1 overflow-y-auto px-2 pb-2">

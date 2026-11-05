@@ -77,6 +77,12 @@
       "regex": "^/api/conversations(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/api/conversations(?:/)?$"
+    },
+    {
+      "page": "/lab",
+      "regex": "^/lab(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/lab(?:/)?$"
     }
   ],
   "dataRoutes": [],

@@ -1,0 +1,175 @@
+.lab-page {
+  min-height: 100%;
+  padding: 32px;
+  background-color: #0f172a;
+  background-image: repeating-linear-gradient(
+    120deg,
+    #ff5f6d 0 56px,
+    #ffc371 56px 112px,
+    #3ad6a2 112px 168px,
+    #2f80ed 168px 224px,
+    #9b5de5 224px 280px
+  );
+  background-attachment: fixed;
+}
+
+.lab-header {
+  max-width: 1100px;
+  margin: 0 auto 24px;
+  color: #ffffff;
+}
+
+.lab-header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.lab-header p {
+  margin-top: 6px;
+  font-size: 0.875rem;
+  opacity: 0.85;
+}
+
+.lab-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 900px) {
+  .lab-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.lab-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.lab-card-stage {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  min-height: 220px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
+}
+
+.lab-card-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.lab-card-title {
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+/* ---- 液态玻璃 ---- */
+
+.glass-card {
+  --mx: 50%;
+  --my: 0%;
+  --strength: 0;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 24px;
+  isolation: isolate;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(6px) saturate(1.6);
+  -webkit-backdrop-filter: blur(6px) saturate(1.6);
+}
+
+.glass-filter-defs {
+  position: absolute;
+}
+
+.glass-refract {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    120deg,
+    #ff5f6d 0 56px,
+    #ffc371 56px 112px,
+    #3ad6a2 112px 168px,
+    #2f80ed 168px 224px,
+    #9b5de5 224px 280px
+  );
+  background-attachment: fixed;
+  filter: url(#lg-displace);
+  opacity: 0.9;
+}
+
+.glass-tint {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.22),
+    rgba(255, 255, 255, 0.06)
+  );
+  pointer-events: none;
+}
+
+.glass-highlight {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--mx) var(--my),
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0) 45%
+  );
+  opacity: var(--strength);
+  mix-blend-mode: screen;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.glass-bezel {
+  position: absolute;
+  inset: 0;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.7),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 0 48px rgba(255, 255, 255, 0.16);
+  pointer-events: none;
+}
+
+.glass-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.glass-card:hover .glass-content {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.glass-logo {
+  width: min(70%, 300px);
+  height: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glass-highlight,
+  .glass-content {
+    transition: none;
+  }
+
+  .glass-card:hover .glass-content {
+    transform: none;
+  }
+}
