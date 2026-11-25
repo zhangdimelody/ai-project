@@ -1,1 +1,25 @@
-node_modules
+# dependencies
+node_modules/
+
+# next.js build output
+.next/
+out/
+
+# typescript incremental build info
+*.tsbuildinfo
+
+# local data / runtime state
+.data/
+
+# env files (keep .env.example tracked)
+.env
+.env.local
+.env.*.local
+
+# logs
+*.log
+npm-debug.log*
+
+# os / editor
+.DS_Store
+Thumbs.db
